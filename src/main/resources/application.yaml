@@ -8,11 +8,17 @@ spring:
     gateway:
       routes:
         - id: authuser-service
-          uri: http://localhost:8080/
+          uri: lb://DISTANCELEARNING-AUTHUSER-SERVICE
           predicates:
             - Path=/distancelearning-authuser/**
         - id: course-service
-          uri: http://localhost:8081/
+          uri: lb://DISTANCELEARNING-COURSE-SERVICE
           predicates:
             - Path=/distancelearning-course/**
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: 'http://localhost:8761/eureka'
+  instance:
+    hostname: localhost
