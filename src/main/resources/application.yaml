@@ -15,6 +15,10 @@ spring:
           uri: lb://DISTANCELEARNING-COURSE-SERVICE
           predicates:
             - Path=/distancelearning-course/**
+        - id: notification-service
+          uri: lb://DISTANCELEARNING-NOTIFICATION-SERVICE
+          predicates:
+            - Path=/distancelearning-notification/**
 
 eureka:
   client:
